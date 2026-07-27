@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sunset Sips - Cocktail Discovery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-dim": "#d9dadb",
+                "tertiary-fixed-dim": "#70d8c8",
+                "on-tertiary-fixed-variant": "#005048",
+                "background": "#f8f9fa",
+                "on-secondary-fixed": "#241a00",
+                "surface-container-low": "#f3f4f5",
+                "on-secondary": "#ffffff",
+                "tertiary-fixed": "#8df5e4",
+                "surface-container-high": "#e7e8e9",
+                "on-surface-variant": "#5b403e",
+                "outline": "#8f706d",
+                "surface": "#f8f9fa",
+                "error": "#ba1a1a",
+                "tertiary": "#00685d",
+                "secondary-fixed-dim": "#ebc23e",
+                "inverse-surface": "#2e3132",
+                "primary": "#b51925",
+                "primary-container": "#d8363a",
+                "on-secondary-container": "#725b00",
+                "on-surface": "#191c1d",
+                "on-tertiary": "#ffffff",
+                "on-secondary-fixed-variant": "#574500",
+                "on-background": "#191c1d",
+                "outline-variant": "#e3bebb",
+                "primary-fixed": "#ffdad7",
+                "on-primary-fixed-variant": "#930015",
+                "error-container": "#ffdad6",
+                "on-error": "#ffffff",
+                "surface-container": "#edeeef",
+                "on-primary": "#ffffff",
+                "secondary-container": "#fdd34d",
+                "surface-container-highest": "#e1e3e4",
+                "on-tertiary-container": "#f4fffb",
+                "surface-container-lowest": "#ffffff",
+                "on-primary-fixed": "#410004",
+                "primary-fixed-dim": "#ffb3ae",
+                "surface-tint": "#b81d27",
+                "surface-bright": "#f8f9fa",
+                "inverse-on-surface": "#f0f1f2",
+                "secondary": "#735c00",
+                "on-tertiary-fixed": "#00201c",
+                "inverse-primary": "#ffb3ae",
+                "secondary-fixed": "#ffe087",
+                "surface-variant": "#e1e3e4",
+                "on-error-container": "#93000a",
+                "on-primary-container": "#fffbff",
+                "tertiary-container": "#008376"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "margin-desktop": "32px",
+                "margin-mobile": "16px",
+                "md": "16px",
+                "xs": "4px",
+                "sm": "8px",
+                "lg": "24px",
+                "base": "8px",
+                "gutter": "16px",
+                "xl": "32px"
+            },
+            "fontFamily": {
+                "body-md": ["Inter"],
+                "title-lg": ["Plus Jakarta Sans"],
+                "headline-lg-mobile": ["Plus Jakarta Sans"],
+                "label-lg": ["Inter"],
+                "display-lg": ["Plus Jakarta Sans"],
+                "label-sm": ["Inter"],
+                "headline-lg": ["Plus Jakarta Sans"],
+                "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
+                "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+                "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "700"}],
+                "label-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ripple-effect:active {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        .glass-header {
+            backdrop-filter: blur(12px);
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e3bebb;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed">
+<!-- Desktop Sidebar Navigation -->
+<nav class="fixed left-0 top-0 h-full w-[80px] lg:w-[280px] bg-surface-container-low flex flex-col py-lg px-md gap-lg shadow-sm z-50 hidden md:flex">
+<div class="flex items-center gap-md px-sm">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_bar</span>
+</div>
+<div class="hidden lg:block">
+<h1 class="font-headline-lg text-headline-lg text-primary leading-none">Sunset Sips</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Crafting Summer</p>
+</div>
+</div>
+<div class="flex flex-col gap-xs mt-md">
+<a class="flex items-center gap-md p-md bg-secondary-container text-on-secondary-container rounded-full font-bold ripple-effect" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="hidden lg:block font-label-lg text-label-lg">Discovery</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-variant rounded-full transition-all ripple-effect" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="hidden lg:block font-label-lg text-label-lg">Favorites</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-variant rounded-full transition-all ripple-effect" href="#">
+<span class="material-symbols-outlined">liquor</span>
+<span class="hidden lg:block font-label-lg text-label-lg">My Cabinet</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-variant rounded-full transition-all ripple-effect" href="#">
+<span class="material-symbols-outlined">local_bar</span>
+<span class="hidden lg:block font-label-lg text-label-lg">Mixology</span>
+</a>
+</div>
+<div class="mt-auto flex flex-col gap-xs border-t border-outline-variant pt-lg">
+<a class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-variant rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="hidden lg:block font-label-lg text-label-lg">Settings</span>
+</a>
+<a class="flex items-center gap-md p-md text-on-surface-variant hover:bg-surface-variant rounded-full transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="hidden lg:block font-label-lg text-label-lg">Help</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<main class="md:ml-[80px] lg:ml-[280px] min-h-screen pb-20 md:pb-0 flex flex-col md:flex-row">
+<!-- Top App Bar (Mobile) -->
+<header class="md:hidden fixed top-0 w-full h-16 px-margin-mobile flex justify-between items-center bg-surface/80 backdrop-blur-md z-50">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary">Sunset Sips</span>
+<div class="flex items-center gap-sm">
+<button class="p-sm text-on-surface-variant"><span class="material-symbols-outlined">search</span></button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A high-quality, professional headshot of a smiling person with warm lighting against a clean, neutral studio background for a user profile avatar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN91bnhGOrFP6OMX6eDZqma_CdpWGGmHtDLroigfG4DADSUt7O_Sb4JPqB1yGv4NFRe3uGziqHmJJu6Y7mNqnc8W3NAuJgdjdBncLnEfsJik0-KL5nz_g35eGLqBqy5rIEjq_YbRgwfnIrnUrNoRdzjo4f7utgNbYLI44V0Og9eL_Djkl-IjLnlkd70fmbNIXxDe5n2EB-PhulQTxsl2PQgdRJS926K6Bje1Esln8UF05HMm0OzbSnspgphe9BNd__oxnQqV8aA-ug"/>
+</div>
+</div>
+</header>
+<!-- Sidebar: Cocktail List -->
+<aside class="w-full md:w-[320px] lg:w-[400px] h-screen overflow-y-auto bg-surface border-r border-outline-variant pt-20 md:pt-lg">
+<div class="px-md lg:px-lg mb-lg">
+<div class="flex items-center justify-between mb-md">
+<h2 class="font-title-lg text-title-lg text-on-surface">Margarita Classics</h2>
+<span class="material-symbols-outlined text-primary">filter_list</span>
+</div>
+<div class="relative">
+<input class="w-full h-12 rounded-full border-none bg-surface-container-high px-xl text-on-surface focus:ring-2 focus:ring-primary" placeholder="Search cocktails..." type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-3 text-on-surface-variant">search</span>
+</div>
+</div>
+<div class="flex flex-col">
+<!-- Active Item -->
+<div class="px-md py-sm">
+<div class="flex items-center gap-md p-md bg-primary-container/10 rounded-2xl border-l-4 border-primary ripple-effect cursor-pointer">
+<div class="w-16 h-16 rounded-xl overflow-hidden shadow-sm flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A close-up vertical shot of a classic Margarita in a salt-rimmed glass, garnished with a fresh lime slice, against a vibrant summer sunset background with warm coral and orange tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsYD8VYW01ATm_2m1a2uMJtKSCpZE6QEY7m3Ryn9n0mLFGK_ZZJVnr2eq-mkE7_Tf9Eo9x-cVYB8vMC-2AUroOXmMJ4j-Mt-BIEItV7KYb9bykK7qYU2JoKKS6tOk8nTRhBk31NKWFwLkpx9ePpVljV-MK5NG9Y79rYtiNWP9LgfMV3Ak31jcXRZQyUgs2YSly94OIzFNPA1IhTs4cXdB9vkgmEgBkK_A5G68x1YI5ocnEFHMs0_9FT7HQZUTfZSjzT1Ilmw80MtJD"/>
+</div>
+<div class="flex-grow">
+<h3 class="font-label-lg text-label-lg text-on-surface font-bold">Margarita</h3>
+<p class="text-on-surface-variant text-sm">Classic summer zest</p>
+</div>
+</div>
+</div>
+<!-- Other Items -->
+<div class="px-md py-sm">
+<div class="flex items-center gap-md p-md hover:bg-surface-variant/50 rounded-2xl transition-colors ripple-effect cursor-pointer">
+<div class="w-16 h-16 rounded-xl overflow-hidden bg-surface-container-high flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A refreshing blue margarita in a cocktail glass with a thick salt rim, styled in a crisp, high-end photography layout with tropical palm leaf shadows and bright summer light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZe4nH8QBBT1fPf8vwrk24jHW5gSxKbpO8C3fTk6PNUvNoMz9MzjlMJHQsF1KXJ53-ySX3USLpdB6hPWq8rSP2ae4hgnBFmXWmd9I8kEOh-1a8dHsUL8Ax48gqDDy9ccieBAyJu-fefqULJzTBO7J4_cqNG9lcJ24OwKQHKbLaw6miQqbc4KbZwXx2qU-ybwF9RPNxF4A9IwaAsHcfd0hZEaQ--aleuCsCOidLOV_clFHLuHNSrX2OYDnhJAv99EbgjYK9PBm7fV8Y"/>
+</div>
+<div class="flex-grow">
+<h3 class="font-label-lg text-label-lg text-on-surface">Blue Margarita</h3>
+<p class="text-on-surface-variant text-sm">Electric &amp; tropical</p>
+</div>
+</div>
+</div>
+<div class="px-md py-sm">
+<div class="flex items-center gap-md p-md hover:bg-surface-variant/50 rounded-2xl transition-colors ripple-effect cursor-pointer">
+<div class="w-16 h-16 rounded-xl overflow-hidden bg-surface-container-high flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Tommy's Margarita served in a rocks glass with ice, highlighting its agave syrup base and fresh lime juice, set on a rustic wooden patio at golden hour." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5rhTo8H7V3QzmGpfV0bc23F757wfnskDkhiDG7RaNV8XFZHBGWY4HQqy2CzoMafcMsNrhWMf9s8VdlXZzDQBV7thvPYG9fpj-3juT4moxnyoIL0IqceXZURBfNGmhbJHjiSUvhUZ730lEXnYVWpE9D-zIYv31JXEuEBXzuNUCAYLt_O58tkIgo528J_WhwDdly_HpEcTNxZxg4b06qGqHX1g3-8hQuRzI37hUDGGHs6sHS6FApOaT-QCNASee03I8PQuS7G8O6_SO"/>
+</div>
+<div class="flex-grow">
+<h3 class="font-label-lg text-label-lg text-on-surface">Tommy's Margarita</h3>
+<p class="text-on-surface-variant text-sm">Agave rich &amp; smooth</p>
+</div>
+</div>
+</div>
+<div class="px-md py-sm">
+<div class="flex items-center gap-md p-md hover:bg-surface-variant/50 rounded-2xl transition-colors ripple-effect cursor-pointer">
+<div class="w-16 h-16 rounded-xl overflow-hidden bg-surface-container-high flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A creamy whitecap margarita in a elegant glass, garnished with coconut flakes and lime, capturing a refreshing coastal beach club atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUBbFu0TNv_80p3pW04K9wjs6CGwc79lelvaaQZNUsTAnpeMb4c3TYFTJ_aYBIqVroIxr0FGyikikcPTDp4zpWwynWfsKeFitwQy5Y3tkT23sqli7djEc2GEy8eEqa8tWMQ547N_lgy1210agSZmPamVGt2PFP4Ffsfm4aPa1gVMjKUv5ObHLOE04DXkzt0XXCwyTrqZ8j7YDHWIirmZneK60YtV1PRff-7YaxVh5_pDFDjVopqVsepdvUCZQtzn7T8aO7RHEBAHlw"/>
+</div>
+<div class="flex-grow">
+<h3 class="font-label-lg text-label-lg text-on-surface">Whitecap Margarita</h3>
+<p class="text-on-surface-variant text-sm">Creamy coconut finish</p>
+</div>
+</div>
+</div>
+<div class="px-md py-sm">
+<div class="flex items-center gap-md p-md hover:bg-surface-variant/50 rounded-2xl transition-colors ripple-effect cursor-pointer">
+<div class="w-16 h-16 rounded-xl overflow-hidden bg-surface-container-high flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A vibrant strawberry margarita with a pink hue, served in a traditional margarita glass with a strawberry garnish and salt rim, bathed in bright noon sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAfbK-duTdm68RnT8RxBNszvP9ZlTptmsfROalUdtDmZKJEohIQakqDqJkiY8FMcgBA1-I4Db9C1qX1Y2ttGygkzlqhGi9stm6IWKw62Z81R9yX_EoX4aLkVTdMWikQPwgJ6ch_UD-H-gE_R9DFUDu39NubBtjGsyi7hE1N9KMmScfzUgF8yDtBkhCtulmfg61_zRfN3Ev2pXIq9T6xbVe2V8sYcN6OdNV78ywyon86O4yTSgPwH7l06zVT4rflFpT7mlp84dUQRyB"/>
+</div>
+<div class="flex-grow">
+<h3 class="font-label-lg text-label-lg text-on-surface">Strawberry Margarita</h3>
+<p class="text-on-surface-variant text-sm">Sweet summer berries</p>
+</div>
+</div>
+</div>
+<div class="px-md py-sm">
+<div class="flex items-center gap-md p-md hover:bg-surface-variant/50 rounded-2xl transition-colors ripple-effect cursor-pointer">
+<div class="w-16 h-16 rounded-xl overflow-hidden bg-surface-container-high flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A smashed watermelon margarita featuring chunks of fresh fruit and mint leaves, styled in a minimalist modern aesthetic with teal and lime green color accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm_TNqoyQdp_tzQUCLP83AirgSTJ6AktgiI3yq7-WXMVMVBqwXUhhwc3Xi5qL9G2fT2MTnLorCSCYYp5P2eFLxnsW7GDTXWOieGmldUzhk4BYTnWy3wackWYblIinSqFzLUaS4oqew0X3FYwQyxSdEecTUpcYyuAuq-Cn3hwqzwhC2HUxJVpfHosX7d0cBVSUCSDDp2gPksSOapXmrmuLBwpFNZAuVmS5AH97PgYih1SYG7tSJhjEIVkWJQYNmuI-pPoD6CFdhGrTb"/>
+</div>
+<div class="flex-grow">
+<h3 class="font-label-lg text-label-lg text-on-surface">Smashed Watermelon</h3>
+<p class="text-on-surface-variant text-sm">Ultra-refreshing fruit</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main View: Detail Section -->
+<section class="flex-grow bg-surface-bright overflow-y-auto">
+<div class="relative h-[300px] md:h-[450px] w-full">
+<img class="w-full h-full object-cover" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+<button class="absolute top-lg right-lg w-14 h-14 bg-surface rounded-full shadow-lg flex items-center justify-center text-primary active:scale-90 transition-transform" id="bookmark-btn">
+<span class="material-symbols-outlined text-[32px]" id="heart-icon">favorite</span>
+</button>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop py-lg -mt-16 relative z-10">
+<div class="bg-surface/80 backdrop-blur-xl p-xl rounded-[32px] shadow-sm border border-white/20">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md mb-xl">
+<div>
+<div class="inline-flex items-center gap-sm bg-tertiary-fixed text-on-tertiary-fixed px-md py-xs rounded-full mb-sm">
+<span class="material-symbols-outlined text-[18px]">local_bar</span>
+<span class="font-label-sm text-label-sm">Ordinary Drink</span>
+</div>
+<h1 class="font-display-lg text-[40px] md:text-display-lg text-on-surface leading-tight">Margarita</h1>
+<div class="flex items-center gap-sm text-on-surface-variant mt-xs">
+<span class="material-symbols-outlined">liquor</span>
+<span class="font-body-md text-body-md">Glass: Cocktail glass</span>
+</div>
+</div>
+<div class="flex gap-sm">
+<button class="h-12 px-lg bg-primary text-on-primary rounded-full font-label-lg text-label-lg ripple-effect flex items-center gap-sm">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+                                Start Mixing
+                            </button>
+<button class="h-12 w-12 border border-outline text-on-surface-variant rounded-full flex items-center justify-center ripple-effect">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-xl">
+<!-- Ingredients Section -->
+<div class="lg:col-span-1">
+<div class="flex items-center gap-sm mb-lg">
+<div class="w-8 h-8 bg-secondary-container rounded-lg flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[18px]">format_list_bulleted</span>
+</div>
+<h3 class="font-title-lg text-title-lg">Ingredients</h3>
+</div>
+<ul class="space-y-md">
+<li class="flex justify-between items-center p-md bg-surface-container-low rounded-xl border border-outline-variant/30">
+<span class="font-label-lg text-label-lg">Tequila</span>
+<span class="text-on-surface-variant font-medium">1 1/2 oz</span>
+</li>
+<li class="flex justify-between items-center p-md bg-surface-container-low rounded-xl border border-outline-variant/30">
+<span class="font-label-lg text-label-lg">Triple sec</span>
+<span class="text-on-surface-variant font-medium">1/2 oz</span>
+</li>
+<li class="flex justify-between items-center p-md bg-surface-container-low rounded-xl border border-outline-variant/30">
+<span class="font-label-lg text-label-lg">Lime juice</span>
+<span class="text-on-surface-variant font-medium">1 oz</span>
+</li>
+<li class="flex justify-between items-center p-md bg-surface-container-low rounded-xl border border-outline-variant/30">
+<span class="font-label-lg text-label-lg">Salt</span>
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+</li>
+</ul>
+<div class="mt-xl p-md bg-tertiary-container/10 border border-tertiary-container/20 rounded-2xl">
+<div class="flex items-center gap-sm text-tertiary mb-xs">
+<span class="material-symbols-outlined">info</span>
+<span class="font-label-lg text-label-lg">Expert Tip</span>
+</div>
+<p class="font-body-md text-body-md text-on-tertiary-container/80">Always use fresh lime juice for that signature zing!</p>
+</div>
+</div>
+<!-- Instructions Section -->
+<div class="lg:col-span-2">
+<div class="flex items-center gap-sm mb-lg">
+<div class="w-8 h-8 bg-primary-container rounded-lg flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-[18px]">restaurant_menu</span>
+</div>
+<h3 class="font-title-lg text-title-lg">Instructions</h3>
+</div>
+<div class="space-y-lg">
+<div class="flex gap-lg">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center font-bold text-primary">1</div>
+<div class="pt-sm border-b border-outline-variant/30 pb-md w-full">
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">Rub the rim of the glass with the lime slice to make the salt stick to it.</p>
+</div>
+</div>
+<div class="flex gap-lg">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center font-bold text-primary">2</div>
+<div class="pt-sm border-b border-outline-variant/30 pb-md w-full">
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">Shake the other ingredients with ice, then carefully pour into the glass (taking care not to dislodge any salt).</p>
+</div>
+</div>
+<div class="flex gap-lg">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center font-bold text-primary">3</div>
+<div class="pt-sm pb-md w-full">
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">Garnish and serve immediately while cold.</p>
+</div>
+</div>
+</div>
+<div class="mt-xl grid grid-cols-2 md:grid-cols-4 gap-md">
+<div class="bg-surface-container rounded-2xl p-md text-center">
+<p class="text-on-surface-variant font-label-sm text-label-sm">Strength</p>
+<p class="text-primary font-bold">Medium</p>
+</div>
+<div class="bg-surface-container rounded-2xl p-md text-center">
+<p class="text-on-surface-variant font-label-sm text-label-sm">Flavor</p>
+<p class="text-primary font-bold">Zesty</p>
+</div>
+<div class="bg-surface-container rounded-2xl p-md text-center">
+<p class="text-on-surface-variant font-label-sm text-label-sm">Calories</p>
+<p class="text-primary font-bold">~150</p>
+</div>
+<div class="bg-surface-container rounded-2xl p-md text-center">
+<p class="text-on-surface-variant font-label-sm text-label-sm">Difficulty</p>
+<p class="text-primary font-bold">Easy</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Nav (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-margin-mobile pb-safe h-20 bg-surface shadow-lg lg:hidden z-50">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-2xl px-4 py-1 ripple-effect" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_drink</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant ripple-effect" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-sm text-label-sm">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant ripple-effect" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-label-sm text-label-sm">Saved</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant ripple-effect" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<!-- Floating Action Button (FAB) -->
+<button class="fixed right-lg bottom-24 md:bottom-lg w-14 h-14 bg-secondary-container text-on-secondary-container rounded-2xl shadow-xl flex items-center justify-center z-40 ripple-effect active:scale-95 transition-transform hover:shadow-2xl">
+<span class="material-symbols-outlined text-[30px]">add</span>
+</button>
+<script>
+        // Micro-interaction for bookmark
+        const bookmarkBtn = document.getElementById('bookmark-btn');
+        const heartIcon = document.getElementById('heart-icon');
+        let isBookmarked = false;
+
+        bookmarkBtn.addEventListener('click', () => {
+            isBookmarked = !isBookmarked;
+            if(isBookmarked) {
+                heartIcon.style.fontVariationSettings = "'FILL' 1";
+                heartIcon.classList.add('text-primary');
+                // Simple ripple effect on container
+                bookmarkBtn.classList.add('bg-primary-fixed');
+            } else {
+                heartIcon.style.fontVariationSettings = "'FILL' 0";
+                heartIcon.classList.remove('text-primary');
+                bookmarkBtn.classList.remove('bg-primary-fixed');
+            }
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>
