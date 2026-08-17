@@ -1,19 +1,23 @@
 import React from 'react';
+import MobileNavItem from "./MobileNavItem.tsx";
 
-const MobileBottomNav = () => (
+const MobileBottomNav: React.FC = () => (
   <nav className="mobile-bottom-nav">
-    <div className="mobile-nav-item active">
+    <MobileNavItem categoryText={"favorite"} categoryTitle={"Favorites"} isActive={true}/>
+    {/*<div className={"mobile-nav-item active"}>
       <span className="material-symbols-outlined fill">explore</span>
       <span>Discovery</span>
-    </div>
-    <div className="mobile-nav-item">
+    </div>*/}
+    <MobileNavItem categoryText={"favorite"} categoryTitle={"Favorites"}/>
+    {/*<div className="mobile-nav-item">
       <span className="material-symbols-outlined">favorite</span>
       <span>Favorites</span>
-    </div>
-    <div className="mobile-nav-item">
+    </div>*/}
+      <MobileNavItem categoryText={"liquor"} categoryTitle={"Cabinet"}/>
+    {/*<div className="mobile-nav-item">
       <span className="material-symbols-outlined">liquor</span>
       <span>Cabinet</span>
-    </div>
+    </div>*/}
     <div className="mobile-nav-item">
       <span className="material-symbols-outlined">local_bar</span>
       <span>Mixology</span>

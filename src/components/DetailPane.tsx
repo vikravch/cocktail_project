@@ -1,5 +1,3 @@
-import React from 'react';
-
 const DetailPane = () => (
   <main className="detail-pane">
     <div className="detail-hero">

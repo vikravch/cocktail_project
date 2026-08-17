@@ -1,21 +1,56 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import SearchBar from "./SearchBar.tsx";
+import {searchCocktails} from "../api/cocktail_api.ts";
+import type {CocktailShort} from "../types/CocktailShort.ts";
 
-const ListPane = () => (
+
+const ListPane: React.FC = () =>{
+
+  const [query, setQuery] = useState<string>('');
+  const [cocktailList, setCocktailList] = useState<CocktailShort[]>([]);
+  function showError() {
+
+  }
+
+  useEffect(()=>{
+    searchCocktails(query).then(setCocktailList).catch(showError);
+  }, [query]);
+
+  const handleQueryChanged = (newQuery: string)=>{
+    setQuery(newQuery);
+  }
+
+  return (
   <aside className="list-pane">
     <div className="list-header">
       <div className="list-title-row">
         <h2>Margarita Classics</h2>
         <span className="material-symbols-outlined icon">filter_list</span>
       </div>
-      <div className="search-bar">
-        <input type="text" className="search-input" placeholder="Search cocktail" />
-        <span className="material-symbols-outlined search-icon">search</span>
-      </div>
+      <SearchBar currentSearchText={query} onSearchTextChanged={handleQueryChanged}/>
     </div>
     <div className="list-items">
+      {
+        cocktailList.map((cocktail:CocktailShort)=> (
+          <div className="list-item-wrapper" key={cocktail.id}>
+            <div className="list-item">
+              <img className="item-image"
+                   src={cocktail.image}
+                   alt="Smashed Watermelon"/>
+              <div className="item-content">
+                <h3 className="item-title">{cocktail.name}</h3>
+                <p className="item-subtitle">{cocktail.description}</p>
+              </div>
+            </div>
+          </div>
+
+        ))
+      }
       <div className="list-item-wrapper">
         <div className="list-item active">
-          <img className="item-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsYD8VYW01ATm_2m1a2uMJtKSCpZE6QEY7m3Ryn9n0mLFGK_ZZJVnr2eq-mkE7_Tf9Eo9x-cVYB8vMC-2AUroOXmMJ4j-Mt-BIEItV7KYb9bykK7qYU2JoKKS6tOk8nTRhBk31NKWFwLkpx9ePpVljV-MK5NG9Y79rYtiNWP9LgfMV3Ak31jcXRZQyUgs2YSly94OIzFNPA1IhTs4cXdB9vkgmEgBkK_A5G68x1YI5ocnEFHMs0_9FT7HQZUTfZSjzT1Ilmw80MtJD" alt="Margarita" />
+          <img className="item-image"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsYD8VYW01ATm_2m1a2uMJtKSCpZE6QEY7m3Ryn9n0mLFGK_ZZJVnr2eq-mkE7_Tf9Eo9x-cVYB8vMC-2AUroOXmMJ4j-Mt-BIEItV7KYb9bykK7qYU2JoKKS6tOk8nTRhBk31NKWFwLkpx9ePpVljV-MK5NG9Y79rYtiNWP9LgfMV3Ak31jcXRZQyUgs2YSly94OIzFNPA1IhTs4cXdB9vkgmEgBkK_A5G68x1YI5ocnEFHMs0_9FT7HQZUTfZSjzT1Ilmw80MtJD"
+               alt="Margarita"/>
           <div className="item-content">
             <h3 className="item-title">Margarita</h3>
             <p className="item-subtitle">Classic summer zest</p>
@@ -58,17 +93,8 @@ const ListPane = () => (
           </div>
         </div>
       </div>
-      <div className="list-item-wrapper">
-        <div className="list-item">
-          <img className="item-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm_TNqoyQdp_tzQUCLP83AirgSTJ6AktgiI3yq7-WXMVMVBqwXUhhwc3Xi5qL9G2fT2MTnLorCSCYYp5P2eFLxnsW7GDTXWOieGmldUzhk4BYTnWy3wackWYblIinSqFzLUaS4oqew0X3FYwQyxSdEecTUpcYyuAuq-Cn3hwqzwhC2HUxJVpfHosX7d0cBVSUCSDDp2gPksSOapXmrmuLBwpFNZAuVmS5AH97PgYih1SYG7tSJhjEIVkWJQYNmuI-pPoD6CFdhGrTb" alt="Smashed Watermelon" />
-          <div className="item-content">
-            <h3 className="item-title">Smashed Watermelon</h3>
-            <p className="item-subtitle">Ultra-refreshing fruit</p>
-          </div>
-        </div>
-      </div>
     </div>
   </aside>
-);
+)};
 
 export default ListPane;
