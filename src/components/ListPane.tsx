@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import SearchBar from "./SearchBar.tsx";
-import {searchCocktails} from "../api/cocktail_api.ts";
+import {searchCocktails} from "../use_case/searchCocktails.ts";
 import type {CocktailShort} from "../types/CocktailShort.ts";
 
 

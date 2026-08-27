@@ -6,7 +6,7 @@ import DetailPane from './components/DetailPane';
 import MobileHeader from './components/MobileHeader';
 import MobileBottomNav from './components/MobileBottomNav';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="layout-container">
       <MobileHeader />
